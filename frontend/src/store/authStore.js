@@ -4,8 +4,7 @@ import axios from 'axios';
 
 //we are making for state purpose like user is loged out /in /verified and it is a at global level
 
-const API_URL = 'http://localhost:5000/auth';
-
+const API_URL = import.meta.env.MODE === 'development' ? 'http://localhost:5000/auth': "/auth";
 axios.defaults.withCredentials = true; // Enable sending cookies with requests
 
 export const useAuthStore = create((set) => ({
